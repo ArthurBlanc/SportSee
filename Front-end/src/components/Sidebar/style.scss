@@ -1,0 +1,39 @@
+@import '../../variables.scss';
+
+/* ---------------------------------------- */
+/* ==             SIDEBAR              */
+/*---------------------------------------- */
+.sidebar {
+	z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 7.3125rem;
+	height: 100%;
+	overflow-x: hidden;
+	background: #020203;
+	text-align: center;
+	&-button-wrapper {
+		position: absolute;
+		top: 50%;
+		margin: 0;
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+}
+
+.copyright {
+	display: inline;
+	position: absolute;
+	right: 50%;
+	bottom: 3.6875rem;
+	left: 50%;
+	width: fit-content;
+	margin: 0;
+	color: #ffffff;
+	font-family: 'Roboto';
+	font-size: 0.75rem;
+	font-weight: 500;
+	line-height: 0rem;
+	writing-mode: sideways-lr;
+}

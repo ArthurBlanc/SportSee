@@ -4,6 +4,8 @@ import { createRoot } from 'react-dom/client'
 import Router from './Router'
 import { Provider } from './context'
 
+import './style.scss'
+
 const container = document.getElementById('root')
 const root = createRoot(container)
 
