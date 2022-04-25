@@ -8,9 +8,20 @@ $font-size: (
 	desktop: 1rem,
 );
 
+$breakpoints: (
+	desktop: 1440px,
+);
+
 /* ---------------------------------------- */
 /* ==        GENERAL MIXINS            */
 /*---------------------------------------- */
+/* This is a mixin that will be used to create a breakpoint for the desktop. */
+@mixin desktop-breakpoint {
+	@media screen and (min-width: map-get($breakpoints, desktop)) {
+		@content;
+	}
+}
+
 @mixin no-margin {
 	margin: 0;
 }

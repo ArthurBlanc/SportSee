@@ -8,9 +8,13 @@ function Header() {
 	return (
 		<header className="nav-wrapper">
 			<Link to="/">
-				<img src={logo} alt="SportSee Logo" className="nav-logo" />
+				<img
+					src={logo}
+					alt="SportSee Logo"
+					className="nav-logo vertical-center"
+				/>
 			</Link>
-			<nav className="nav">
+			<nav className="nav vertical-center">
 				<NavLink
 					className={({ isActive }) =>
 						isActive ? 'nav-active' : 'nav-link'

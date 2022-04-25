@@ -10,9 +10,8 @@
 	border: none;
 	border-radius: 6px;
 	background-color: #ffffff;
-}
-
-.sidebar-button-logo {
-	width: 2rem;
-	height: 2rem;
+	&-logo {
+		width: 2rem;
+		height: 2rem;
+	}
 }

@@ -5,14 +5,8 @@
 /*---------------------------------------- */
 .score {
 	position: relative;
-	.recharts-responsive-container {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-	}
 }
+
 .chartgoal {
 	&-title {
 		position: absolute;
@@ -23,11 +17,6 @@
 		font-weight: 500;
 	}
 	&-label {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
 		color: #9b9eac;
 		font-weight: 500;
 		line-height: 1.625rem;

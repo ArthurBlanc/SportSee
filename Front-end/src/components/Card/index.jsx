@@ -4,7 +4,7 @@ function Card({ userKeyData, unit, subtitle, className, logo }) {
 	return (
 		<div className="card ">
 			<div className={'card-icon-wrapper ' + className}>
-				<img src={logo} alt="" className="card-icon" />
+				<img src={logo} alt="" className="card-icon center" />
 			</div>
 			<div className="card-data-wrapper">
 				<p className="card-title">
