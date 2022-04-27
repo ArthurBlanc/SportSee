@@ -1,4 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 export const Context = createContext()
 
@@ -8,6 +9,7 @@ export const Provider = ({ children }) => {
 	const [activity, setActivity] = useState(null)
 	const [averageSessions, setAverageSessions] = useState(null)
 	const [performance, setPerformance] = useState(null)
+	const [userToggle, setUserToggle] = useState(false)
 
 	useEffect(() => {
 		if (userId) {
@@ -62,9 +64,15 @@ export const Provider = ({ children }) => {
 				setAverageSessions,
 				performance,
 				setPerformance,
+				userToggle,
+				setUserToggle,
 			}}
 		>
 			{children}
 		</Context.Provider>
 	)
+}
+
+Provider.propTypes = {
+	children: PropTypes.object.isRequired,
 }
