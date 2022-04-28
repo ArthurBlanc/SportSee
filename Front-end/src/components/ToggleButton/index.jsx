@@ -3,6 +3,13 @@ import PropTypes from 'prop-types'
 
 import './style.scss'
 
+/**
+ * Render a Toggle Switch lanching a function
+ *
+ * @category Components
+ * @component
+ * @returns { React.Component } A React component
+ */
 const ToggleSwitch = ({
 	id,
 	checked,
@@ -62,12 +69,33 @@ const ToggleSwitch = ({
 }
 
 ToggleSwitch.propTypes = {
+	/**
+	 * Id of the checkbox
+	 */
 	id: PropTypes.string.isRequired,
+	/**
+	 * Whether or not the checkbox is checked
+	 */
 	checked: PropTypes.bool.isRequired,
+	/**
+	 * Function that is called when the checkbox is clicked
+	 */
 	onChange: PropTypes.func.isRequired,
+	/**
+	 * Name of the checkbox
+	 */
 	name: PropTypes.string,
+	/**
+	 * Labels of the checkbox
+	 */
 	optionLabels: PropTypes.array,
+	/**
+	 * Whether or not the checkbox is small
+	 */
 	small: PropTypes.bool,
+	/**
+	 * Whether or not the checkbox is disabled
+	 */
 	disabled: PropTypes.bool,
 }
 

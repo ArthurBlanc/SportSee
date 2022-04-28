@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 
 import './style.scss'
 
+/**
+ * Render a Radial Bar Chart using Recharts
+ *
+ * @category Components
+ * @component
+ * @returns { React.Component } A React component
+ */
 function ChartGoal({ data }) {
-	let score = 0
-	if (data.todayScore) {
-		score = data.todayScore
-	} else if (data.score) {
-		score = data.score
-	}
-
+	const score = data.todayScore ? data.todayScore : data.score
 	const dataArray = [{ name: 'score', value: score }]
 	return (
 		<>
@@ -51,6 +52,9 @@ function ChartGoal({ data }) {
 }
 
 ChartGoal.propTypes = {
+	/**
+	 * Data to be displayed in the chart
+	 */
 	data: PropTypes.object.isRequired,
 }
 

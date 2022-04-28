@@ -6,8 +6,16 @@ import Sidebar from './components/Sidebar'
 
 import Home from './pages/Home'
 import Profil from './pages/Profil'
-import ComingSoon from './components/ComingSoon'
+import Settings from './pages/Settings'
+import Community from './pages/Community'
 
+/**
+ * Router to render the Header, the Sidebar and the 4 pages of the application
+ *
+ * @category Router
+ * @component
+ * @returns { React.Component } A React component
+ */
 function Router() {
 	return (
 		<React.StrictMode>
@@ -17,8 +25,8 @@ function Router() {
 				<Routes>
 					<Route exact path="/" element={<Home />} />
 					<Route exact path="/profil/:userId" element={<Profil />} />
-					<Route exact path="/settings" element={<ComingSoon />} />
-					<Route exact path="/community" element={<ComingSoon />} />
+					<Route exact path="/settings" element={<Settings />} />
+					<Route exact path="/community" element={<Community />} />
 				</Routes>
 			</BrowserRouter>
 		</React.StrictMode>

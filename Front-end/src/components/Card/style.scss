@@ -16,7 +16,9 @@
 		font-size: 1rem;
 	}
 	&:last-child {
-		margin-bottom: 0;
+		@include desktop-breakpoint {
+			margin-bottom: 0;
+		}
 	}
 	p {
 		margin: 0;

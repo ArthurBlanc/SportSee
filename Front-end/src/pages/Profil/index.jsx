@@ -16,9 +16,15 @@ import cheeseburger from '../../assets/cheeseburger.svg'
 
 import './style.scss'
 
+/**
+ * Render Profil page
+ *
+ * @category Pages
+ * @component
+ * @returns { React.Component } A React component
+ */
 function Profil() {
-	/* Setting the title of the page. */
-	document.title = 'Profil'
+	document.title = 'Profil - SportSee'
 	const {
 		setUserId,
 		user,
@@ -37,6 +43,7 @@ function Profil() {
 		if (userId) {
 			setUserId(userId)
 		}
+		// Remove data when leaving the page
 		return () => {
 			setUserId(null)
 			setUser(null)

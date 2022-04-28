@@ -7,16 +7,17 @@ import logo from '../../assets/logo.svg'
 
 import './style.scss'
 
+/**
+ * Render the Header with a logo and a navbar
+ * The user's profile page is determined by the userToggle state in the Context
+ *
+ * @category Components
+ * @component
+ * @returns { React.Component } A React component
+ */
 function Header() {
 	const { userToggle } = useContext(Context)
-
-	let userId = '12'
-	if (userToggle) {
-		userId = '18'
-	}
-	if (!userToggle) {
-		userId = '12'
-	}
+	const userId = userToggle ? 18 : 12
 
 	return (
 		<header className="nav-wrapper">

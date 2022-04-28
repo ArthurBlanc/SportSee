@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/ToggleButton/index.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">SportSee - Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Components</h2><h3>Components</h3><ul><li><a href="Card.html">Card</a></li><li><a href="ChartActivity.html">ChartActivity</a></li><li><a href="ChartAverageSessions.html">ChartAverageSessions</a></li><li><a href="ChartGoal.html">ChartGoal</a></li><li><a href="ChartPerformance.html">ChartPerformance</a></li><li><a href="ChartsCard.html">ChartsCard</a></li><li><a href="ComingSoon.html">ComingSoon</a></li><li><a href="CustomToolTip.html">CustomToolTip</a></li><li><a href="Header.html">Header</a></li><li><a href="Sidebar.html">Sidebar</a></li><li><a href="SidebarButton.html">SidebarButton</a></li><li><a href="ToggleSwitch.html">ToggleSwitch</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Components</h3><ul><li><a href="Community.html">Community</a></li><li><a href="Home.html">Home</a></li><li><a href="Profil.html">Profil</a></li><li><a href="Settings.html">Settings</a></li></ul></div><div class="category"><h2>Router</h2><h3>Components</h3><ul><li><a href="Router.html">Router</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/ToggleButton/index.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import PropTypes from 'prop-types'
+
+import './style.scss'
+
+/**
+ * Render a Toggle Switch lanching a function
+ *
+ * @category Components
+ * @component
+ * @returns { React.Component } A React component
+ */
+const ToggleSwitch = ({
+	id,
+	checked,
+	onChange,
+	name,
+	optionLabels,
+	small,
+	disabled,
+}) => {
+	function handleKeyPress(e) {
+		if (e.keyCode !== 32) return
+
+		e.preventDefault()
+		onChange(!checked)
+	}
+
+	return (
+		&lt;div className={'toggle-switch' + (small ? ' small-switch' : '')}>
+			&lt;input
+				type="checkbox"
+				name={name}
+				className="toggle-switch-checkbox"
+				id={id}
+				checked={checked}
+				onChange={(e) => onChange(e.target.checked)}
+				disabled={disabled}
+			/>
+			{id ? (
+				&lt;label
+					className="toggle-switch-label"
+					tabIndex={disabled ? -1 : 1}
+					onKeyDown={(e) => handleKeyPress(e)}
+					htmlFor={id}
+				>
+					&lt;span
+						className={
+							disabled
+								? 'toggle-switch-inner toggle-switch-disabled'
+								: 'toggle-switch-inner'
+						}
+						data-yes={optionLabels[0]}
+						data-no={optionLabels[1]}
+						tabIndex={-1}
+					/>
+					&lt;span
+						className={
+							disabled
+								? 'toggle-switch-switch toggle-switch-disabled'
+								: 'toggle-switch-switch'
+						}
+						tabIndex={-1}
+					/>
+				&lt;/label>
+			) : null}
+		&lt;/div>
+	)
+}
+
+ToggleSwitch.propTypes = {
+	/**
+	 * Id of the checkbox
+	 */
+	id: PropTypes.string.isRequired,
+	/**
+	 * Whether or not the checkbox is checked
+	 */
+	checked: PropTypes.bool.isRequired,
+	/**
+	 * Function that is called when the checkbox is clicked
+	 */
+	onChange: PropTypes.func.isRequired,
+	/**
+	 * Name of the checkbox
+	 */
+	name: PropTypes.string,
+	/**
+	 * Labels of the checkbox
+	 */
+	optionLabels: PropTypes.array,
+	/**
+	 * Whether or not the checkbox is small
+	 */
+	small: PropTypes.bool,
+	/**
+	 * Whether or not the checkbox is disabled
+	 */
+	disabled: PropTypes.bool,
+}
+
+ToggleSwitch.defaultProps = {
+	optionLabels: ['Yes', 'No'],
+}
+
+export default ToggleSwitch
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

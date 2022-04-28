@@ -7,6 +7,13 @@ import swimming from '../../assets/swimming.svg'
 import biking from '../../assets/biking.svg'
 import haltere from '../../assets/haltere.svg'
 
+/**
+ * Render the sidebar with buttons and copyright
+ *
+ * @category Components
+ * @component
+ * @returns { React.Component } A React component
+ */
 function Sidebar() {
 	return (
 		<aside className="sidebar">

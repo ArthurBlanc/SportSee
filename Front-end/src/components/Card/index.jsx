@@ -2,6 +2,13 @@ import PropTypes from 'prop-types'
 
 import './style.scss'
 
+/**
+ * Render a div (card) containing an image and text
+ *
+ * @category Components
+ * @component
+ * @returns { React.Component } A React component
+ */
 function Card({ userKeyData, unit, subtitle, className, logo }) {
 	return (
 		<div className="card ">
@@ -20,10 +27,25 @@ function Card({ userKeyData, unit, subtitle, className, logo }) {
 }
 
 Card.propTypes = {
+	/**
+	 * Data number to be displayed in the card
+	 */
 	userKeyData: PropTypes.number.isRequired,
+	/**
+	 * Unit of the data
+	 */
 	unit: PropTypes.string.isRequired,
+	/**
+	 * Subtitle of the card
+	 */
 	subtitle: PropTypes.string.isRequired,
-	className: PropTypes.string.isRequired,
+	/**
+	 * Class name of the card
+	 */
+	className: PropTypes.string,
+	/**
+	 * Logo path of the card
+	 */
 	logo: PropTypes.string.isRequired,
 }
 

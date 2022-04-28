@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/ChartPerformance/index.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">SportSee - Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Components</h2><h3>Components</h3><ul><li><a href="Card.html">Card</a></li><li><a href="ChartActivity.html">ChartActivity</a></li><li><a href="ChartAverageSessions.html">ChartAverageSessions</a></li><li><a href="ChartGoal.html">ChartGoal</a></li><li><a href="ChartPerformance.html">ChartPerformance</a></li><li><a href="ChartsCard.html">ChartsCard</a></li><li><a href="ComingSoon.html">ComingSoon</a></li><li><a href="CustomToolTip.html">CustomToolTip</a></li><li><a href="Header.html">Header</a></li><li><a href="Sidebar.html">Sidebar</a></li><li><a href="SidebarButton.html">SidebarButton</a></li><li><a href="ToggleSwitch.html">ToggleSwitch</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Components</h3><ul><li><a href="Community.html">Community</a></li><li><a href="Home.html">Home</a></li><li><a href="Profil.html">Profil</a></li><li><a href="Settings.html">Settings</a></li></ul></div><div class="category"><h2>Router</h2><h3>Components</h3><ul><li><a href="Router.html">Router</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/ChartPerformance/index.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {
+	RadarChart,
+	PolarGrid,
+	PolarAngleAxis,
+	Radar,
+	ResponsiveContainer,
+	PolarRadiusAxis,
+	Text,
+} from 'recharts'
+import PropTypes from 'prop-types'
+
+/**
+ * Render a RadarChart using Recharts
+ *
+ * @category Components
+ * @component
+ * @returns { React.Component } A React component
+ */
+function ChartPerformance({ data }) {
+	/**
+	 * Function to render the labels of the chart in a Text component
+	 *
+	 * @param { Object } payload - The payload of the labels
+	 * @param { Number } x - The x position of the label
+	 * @param { Number } y - The y position of the label
+	 * @param { Number } cx - The x position of the center of the label
+	 * @param { Number } cy - The y position of the center of the label
+	 * @param { Object } rest - The rest of the props of the label
+	 * @returns A function that returns a Text component
+	 */
+	const renderPolarAngleAxis = ({ payload, x, y, cx, cy, ...rest }) => {
+		/**
+		 * Function to translate the labels of the chart
+		 *
+		 * @param { String } value - The value of the label
+		 * @returns { String } The translated value of the label
+		 */
+		const formatLabel = (value) => {
+			if (value === 'Energy') return 'Energie'
+			if (value === 'Strength') return 'Force'
+			if (value === 'Speed') return 'Vitesse'
+			if (value === 'Intensity') return 'Intensité'
+			return value
+		}
+
+		return (
+			&lt;Text
+				{...rest}
+				verticalAnchor="middle"
+				y={y + (y - cy) / 10}
+				x={x + (x - cx) / 100}
+				fill="#FFFFFF"
+				fontSize="0.75rem"
+			>
+				{formatLabel(
+					data.kind[payload.value].charAt(0).toUpperCase() +
+						data.kind[payload.value].slice(1)
+				)}
+			&lt;/Text>
+		)
+	}
+
+	return (
+		&lt;>
+			&lt;ResponsiveContainer width="100%" height="100%">
+				&lt;RadarChart outerRadius={90} data={[...data.data].reverse()}>
+					&lt;PolarGrid radialLines={false} />
+					&lt;PolarAngleAxis
+						dataKey="kind"
+						tick={(props) => renderPolarAngleAxis(props)}
+					/>
+					&lt;PolarRadiusAxis
+						tickCount={6}
+						tick={false}
+						axisLine={false}
+					/>
+					&lt;Radar
+						dataKey="value"
+						stroke="#FF0101"
+						fill="#FF0101"
+						fillOpacity={0.6}
+					/>
+				&lt;/RadarChart>
+			&lt;/ResponsiveContainer>
+		&lt;/>
+	)
+}
+
+ChartPerformance.propTypes = {
+	/**
+	 * Data to be displayed in the chart
+	 */
+	data: PropTypes.object.isRequired,
+}
+
+export default ChartPerformance
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

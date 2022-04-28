@@ -14,6 +14,13 @@ import CustomToolTip from './CustomToolTip'
 
 import './style.scss'
 
+/**
+ * Render a BarChart using Recharts
+ *
+ * @category Components
+ * @component
+ * @returns { React.Component } A React component
+ */
 function ChartActivity({ data }) {
 	return (
 		<>
@@ -73,6 +80,9 @@ function ChartActivity({ data }) {
 }
 
 ChartActivity.propTypes = {
+	/**
+	 * Data to be displayed in the chart
+	 */
 	data: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 

@@ -3,6 +3,11 @@ import PropTypes from 'prop-types'
 
 export const Context = createContext()
 
+/**
+ * Provider of the data for the app using context, state and fetch
+ *
+ * @returns { React.Component } A React component returning the Context.Provider with the value of the state and the setState functions
+ */
 export const Provider = ({ children }) => {
 	const [userId, setUserId] = useState(null)
 	const [user, setUser] = useState(null)
@@ -74,5 +79,8 @@ export const Provider = ({ children }) => {
 }
 
 Provider.propTypes = {
+	/**
+	 * The children of the Provider component
+	 */
 	children: PropTypes.object.isRequired,
 }

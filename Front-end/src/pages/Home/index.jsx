@@ -7,7 +7,15 @@ import ComingSoon from '../../components/ComingSoon'
 
 import './style.scss'
 
+/**
+ * Render Home page
+ *
+ * @category Pages
+ * @component
+ * @returns { React.Component } A React component
+ */
 function Home() {
+	document.title = 'Accueil - SportSee'
 	const { userToggle, setUserToggle } = useContext(Context)
 
 	return (
