@@ -1,3 +1,24 @@
+
+# P12
+![P12](/Front-end/src/assets/logo.svg)
+
+![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)
+[![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](https://github.com/ArthurBlanc)
+
+### Prerequisites
+
+- [Node](https://nodejs.org/en/) for npm commands or [Yarn](https://yarnpkg.com/) for yarn commands
+
+### Installing and launching Back-end
+
+1. Install all dependencies for Back-end:
+- `npm install` or `yarn`
+
+2. Launch back-end on port 3000 (default port):
+- `npm run dev` or `yarn run dev`
+
+---
+
 # Project 9 - Front-end Dashboard
 
 This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.

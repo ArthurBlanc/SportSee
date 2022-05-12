@@ -1,3 +1,50 @@
+# P12
+![P12](/Front-end/src/assets/logo.svg)
+
+![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)
+[![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](https://github.com/ArthurBlanc)
+
+### Prerequisites
+
+- [Node](https://nodejs.org/en/) for npm commands or [Yarn](https://yarnpkg.com/) for yarn commands
+
+### Dependencies
+
+- [React](https://reactjs.org): ^18
+- [React-router-dom](https://reactrouter.com/): ^6.3.0
+- [Sass](https://sass-lang.com/): ^1.49.11
+- `$ npm i sass` or `$ yarn add sass`
+- [Recharts](https://recharts.org/): ^2.1.9
+- `$ npm i recharts` or `$ yarn add recharts`
+- [Prop-types](https://www.npmjs.com/package/prop-types): ^15.8.1
+- `$ npm i prop-types` or `$ yarn add prop-types`
+
+## Installing and launching Front-end
+
+
+1. Install all dependencies for Front-end:
+- `npm install` or `yarn`
+
+2. Launch front-end:
+- `npm start` or `yarn start`
+
+Front-end will launch at URL:
+`http://localhost:80`.
+
+URL availables in this project:
+- `http://localhost:80`
+- `http://localhost:80/profil/12`
+- `http://localhost:80/profil/18`
+- `http://localhost:80/settings`
+- `http://localhost:80/community`
+
+
+## Author
+
+**Arthur Blanc** : [**GitHub**](https://github.com/ArthurBlanc/) - [**Portfolio**](https://abcoding.fr/)
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
