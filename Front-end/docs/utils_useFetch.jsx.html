@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> components/Sidebar/index.jsx</title>
+  <title> utils/useFetch.jsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>components/Sidebar/index.jsx</h1>
+                    <h1>utils/useFetch.jsx</h1>
                 </header>
                 
 
@@ -89,37 +89,38 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import './style.scss'
-
-import SidebarButton from '../SidebarButton'
-
-import yoga from '../../assets/yoga.svg'
-import swimming from '../../assets/swimming.svg'
-import biking from '../../assets/biking.svg'
-import haltere from '../../assets/haltere.svg'
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react'
 
 /**
- * Render the sidebar with buttons and copyright
- *
- * @category Components
- * @component
- * @returns { React.Component } A React component
+ * This function will fetch data from the url passed to it, and return an object with the fetchedData, a
+ * boolean indicating whether the data is loading, and a boolean indicating whether there was an error.
+ * @category Custom Hooks
+ *  @returns An object with three properties: isLoading, fetchData, and error.
  */
-function Sidebar() {
-	return (
-		&lt;aside className="sidebar">
-			&lt;div className="sidebar-button-wrapper center">
-				&lt;SidebarButton logo={yoga} />
-				&lt;SidebarButton logo={swimming} />
-				&lt;SidebarButton logo={biking} />
-				&lt;SidebarButton logo={haltere} />
-			&lt;/div>
-			&lt;p className="copyright">Copyright, SportSee 2020&lt;/p>
-		&lt;/aside>
-	)
-}
+export function useFetch(url) {
+	const [fetchedData, setFetchedDat] = useState(null)
+	const [isLoading, setLoading] = useState(true)
+	const [error, setError] = useState(false)
 
-export default Sidebar
+	useEffect(() => {
+		if (!url) return
+		setLoading(true)
+		async function fetchData() {
+			try {
+				const response = await fetch(url)
+				const data = await response.json()
+				setFetchedDat(data)
+			} catch (err) {
+				console.log(err)
+				setError(true)
+			} finally {
+				setLoading(false)
+			}
+		}
+		fetchData()
+	}, [url])
+	return { isLoading, fetchedData, error }
+}
 </code></pre>
         </article>
     </section>

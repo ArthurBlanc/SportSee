@@ -72,7 +72,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Components</h2><h3>Components</h3><ul><li><a href="Card.html">Card</a></li><li><a href="ChartActivity.html">ChartActivity</a></li><li><a href="ChartAverageSessions.html">ChartAverageSessions</a></li><li><a href="ChartGoal.html">ChartGoal</a></li><li><a href="ChartPerformance.html">ChartPerformance</a></li><li><a href="ChartsCard.html">ChartsCard</a></li><li><a href="ComingSoon.html">ComingSoon</a></li><li><a href="CustomToolTip.html">CustomToolTip</a></li><li><a href="Header.html">Header</a></li><li><a href="Sidebar.html">Sidebar</a></li><li><a href="SidebarButton.html">SidebarButton</a></li><li><a href="ToggleSwitch.html">ToggleSwitch</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Components</h3><ul><li><a href="Community.html">Community</a></li><li><a href="Home.html">Home</a></li><li><a href="Profil.html">Profil</a></li><li><a href="Settings.html">Settings</a></li></ul></div><div class="category"><h2>Router</h2><h3>Components</h3><ul><li><a href="Router.html">Router</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Components</h2><h3>Components</h3><ul><li><a href="Card.html">Card</a></li><li><a href="ChartActivity.html">ChartActivity</a></li><li><a href="ChartAverageSessions.html">ChartAverageSessions</a></li><li><a href="ChartGoal.html">ChartGoal</a></li><li><a href="ChartPerformance.html">ChartPerformance</a></li><li><a href="ChartsCard.html">ChartsCard</a></li><li><a href="ComingSoon.html">ComingSoon</a></li><li><a href="CustomToolTip.html">CustomToolTip</a></li><li><a href="Header.html">Header</a></li><li><a href="Sidebar.html">Sidebar</a></li><li><a href="SidebarButton.html">SidebarButton</a></li><li><a href="ToggleSwitch.html">ToggleSwitch</a></li></ul></div><div class="category"><h2>Custom Hooks</h2><h3>Global</h3><ul><li><a href="global.html#useFetch">useFetch</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Components</h3><ul><li><a href="Community.html">Community</a></li><li><a href="Home.html">Home</a></li><li><a href="Profil.html">Profil</a></li><li><a href="Settings.html">Settings</a></li></ul></div><div class="category"><h2>Router</h2><h3>Components</h3><ul><li><a href="Router.html">Router</a></li></ul></div>
                 
             </nav>
         </div>
@@ -89,10 +89,9 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useEffect, useContext } from 'react'
-import { useParams } from 'react-router-dom'
+            <pre class="prettyprint source linenums"><code>import { useParams } from 'react-router-dom'
 
-import { Context } from '../../context'
+import { useFetch } from '../../utils/useFetch'
 import Card from '../../components/Card'
 import ChartsCard from '../../components/ChartsCard'
 import ChartActivity from '../../components/ChartActivity'
@@ -116,49 +115,52 @@ import './style.scss'
  */
 function Profil() {
 	document.title = 'Profil - SportSee'
-	const {
-		setUserId,
-		user,
-		setUser,
-		activity,
-		setActivity,
-		averageSessions,
-		setAverageSessions,
-		performance,
-		setPerformance,
-	} = useContext(Context)
 
 	const { userId } = useParams()
 
-	useEffect(() => {
-		if (userId) {
-			setUserId(userId)
-		}
-		// Remove data when leaving the page
-		return () => {
-			setUserId(null)
-			setUser(null)
-			setActivity(null)
-			setAverageSessions(null)
-			setPerformance(null)
-		}
-	}, [
-		userId,
-		setUserId,
-		setUser,
-		setActivity,
-		setAverageSessions,
-		setPerformance,
-	])
+	const user = useFetch(`http://localhost:3000/user/${userId}`)
+	const activity = useFetch(`http://localhost:3000/user/${userId}/activity`)
+	const averageSessions = useFetch(
+		`http://localhost:3000/user/${userId}/average-sessions`
+	)
+	const performance = useFetch(
+		`http://localhost:3000/user/${userId}/performance`
+	)
+
+	if (
+		user.isLoading ||
+		activity.isLoading ||
+		averageSessions.isLoading ||
+		performance.isLoading
+	) {
+		return (
+			&lt;section className="profil-wrapper">
+				&lt;h2 className="center">Loading...&lt;/h2>
+			&lt;/section>
+		)
+	}
+
+	if (
+		user.error ||
+		activity.error ||
+		averageSessions.error ||
+		performance.error
+	) {
+		return (
+			&lt;section className="profil-wrapper">
+				&lt;h2 className="center">Une erreur est survenue !&lt;/h2>
+			&lt;/section>
+		)
+	}
 
 	return (
 		&lt;section className="profil-wrapper">
-			{user &amp;&amp; (
+			{user.fetchedData.data &amp;&amp; (
 				&lt;div className="profil">
 					&lt;h2 className="profil-title">
 						Bonjour{' '}
 						&lt;span className="profil-firstName">
-							{user.userInfos.firstName}
+							{user.fetchedData.data.userInfos.firstName}
 						&lt;/span>
 					&lt;/h2>
 					&lt;p className="profil-subtitle">
@@ -167,36 +169,49 @@ function Profil() {
 					&lt;div className="dashboard">
 						&lt;div className="dashboard-charts-wrapper">
 							&lt;div className="activity-charts">
-								{activity &amp;&amp; (
-									&lt;ChartActivity data={activity.sessions} />
+								{activity.fetchedData.data &amp;&amp; (
+									&lt;ChartActivity
+										data={
+											activity.fetchedData.data.sessions
+										}
+									/>
 								)}
 							&lt;/div>
 							&lt;div className="small-card-wrapper">
-								{averageSessions &amp;&amp; (
+								{averageSessions.fetchedData.data &amp;&amp; (
 									&lt;ChartsCard
 										className="average-sessions"
 										content={
 											&lt;ChartAverageSessions
-												data={averageSessions.sessions}
+												data={
+													averageSessions.fetchedData
+														.data.sessions
+												}
 											/>
 										}
 									/>
 								)}
 
-								{performance &amp;&amp; (
+								{performance.fetchedData.data &amp;&amp; (
 									&lt;ChartsCard
 										className="performance"
 										content={
 											&lt;ChartPerformance
-												data={performance}
+												data={
+													performance.fetchedData.data
+												}
 											/>
 										}
 									/>
 								)}
-								{user &amp;&amp; (
+								{user.fetchedData.data &amp;&amp; (
 									&lt;ChartsCard
 										className="score"
-										content={&lt;ChartGoal data={user} />}
+										content={
+											&lt;ChartGoal
+												data={user.fetchedData.data}
+											/>
+										}
 									/>
 								)}
 							&lt;/div>
@@ -204,28 +219,37 @@ function Profil() {
 
 						&lt;div className="dashboard-aside">
 							&lt;Card
-								userKeyData={user.keyData.calorieCount}
+								userKeyData={
+									user.fetchedData.data.keyData.calorieCount
+								}
 								unit="kCal"
 								subtitle="Calories"
 								className="calorie"
 								logo={energy}
 							/>
 							&lt;Card
-								userKeyData={user.keyData.proteinCount}
+								userKeyData={
+									user.fetchedData.data.keyData.proteinCount
+								}
 								unit="g"
 								subtitle="Proteines"
 								className="protein"
 								logo={chicken}
 							/>
 							&lt;Card
-								userKeyData={user.keyData.carbohydrateCount}
+								userKeyData={
+									user.fetchedData.data.keyData
+										.carbohydrateCount
+								}
 								unit="g"
 								subtitle="Glucides"
 								className="carbohydrate"
 								logo={apple}
 							/>
 							&lt;Card
-								userKeyData={user.keyData.lipidCount}
+								userKeyData={
+									user.fetchedData.data.keyData.lipidCount
+								}
 								unit="g"
 								subtitle="Lipides"
 								className="lipid"
