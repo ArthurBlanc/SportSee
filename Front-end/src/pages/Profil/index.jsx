@@ -27,15 +27,55 @@ function Profil() {
 
 	const { userId } = useParams()
 
-	const user = useFetch(`http://localhost:3000/user/${userId}`)
-	const activity = useFetch(`http://localhost:3000/user/${userId}/activity`)
+	/* Fetch the data from API or mocked data */
+	const user = useFetch(
+		`http://localhost:3000/user/${userId}`,
+		userId,
+		window.location.origin + '/mocked-data/user-main-data.json'
+	)
+	const activity = useFetch(
+		`http://localhost:3000/user/${userId}/activity`,
+		userId,
+		window.location.origin + '/mocked-data/user-activity.json'
+	)
 	const averageSessions = useFetch(
-		`http://localhost:3000/user/${userId}/average-sessions`
+		`http://localhost:3000/user/${userId}/average-sessions`,
+		userId,
+		window.location.origin + '/mocked-data/user-average-sessions.json'
 	)
 	const performance = useFetch(
-		`http://localhost:3000/user/${userId}/performance`
+		`http://localhost:3000/user/${userId}/performance`,
+		userId,
+		window.location.origin + '/mocked-data/user-performance.json'
 	)
 
+	/**
+	 * Function to return on dataObject with the data from the API if available, or the mocked data if not.
+	 * @param {Object} dataObject - Object that will contain the data .
+	 * @param {Object} apiData - Data from the API.
+	 * @returns The dataObject is returned.
+	 */
+	const formatData = (dataObject, apiData) => {
+		if (apiData.apiData) {
+			dataObject = apiData.apiData
+			return dataObject
+		} else if (apiData.mockedData) {
+			dataObject = apiData.mockedData
+			return dataObject
+		}
+	}
+
+	/* Init the dataObject and format the data */
+	let userData = {}
+	userData = formatData(userData, user)
+	let activityData = {}
+	activityData = formatData(activityData, activity)
+	let averageSessionsData = {}
+	averageSessionsData = formatData(averageSessionsData, averageSessions)
+	let performanceData = {}
+	performanceData = formatData(performanceData, performance)
+
+	/* If the data is loading, display a loading message to the user */
 	if (
 		user.isLoading ||
 		activity.isLoading ||
@@ -44,16 +84,17 @@ function Profil() {
 	) {
 		return (
 			<section className="profil-wrapper">
-				<h2 className="center">Loading...</h2>
+				<h2 className="center">Chargement...</h2>
 			</section>
 		)
 	}
 
+	/* If the fetches on the API and the mocked data returns errors, display a error message to the user */
 	if (
-		user.error ||
-		activity.error ||
-		averageSessions.error ||
-		performance.error
+		(user.errorAPI && user.errorMocked) ||
+		(activity.errorAPI && activity.errorMocked) ||
+		(averageSessions.errorAPI && averageSessions.errorMocked) ||
+		(performance.errorAPI && performance.errorMocked)
 	) {
 		return (
 			<section className="profil-wrapper">
@@ -64,12 +105,12 @@ function Profil() {
 
 	return (
 		<section className="profil-wrapper">
-			{user.fetchedData.data && (
+			{userData && (
 				<div className="profil">
 					<h2 className="profil-title">
 						Bonjour{' '}
 						<span className="profil-firstName">
-							{user.fetchedData.data.userInfos.firstName}
+							{userData.userInfos.firstName}
 						</span>
 					</h2>
 					<p className="profil-subtitle">
@@ -78,49 +119,40 @@ function Profil() {
 					<div className="dashboard">
 						<div className="dashboard-charts-wrapper">
 							<div className="activity-charts">
-								{activity.fetchedData.data && (
+								{activityData && (
 									<ChartActivity
-										data={
-											activity.fetchedData.data.sessions
-										}
+										data={activityData.sessions}
 									/>
 								)}
 							</div>
 							<div className="small-card-wrapper">
-								{averageSessions.fetchedData.data && (
+								{averageSessionsData && (
 									<ChartsCard
 										className="average-sessions"
 										content={
 											<ChartAverageSessions
 												data={
-													averageSessions.fetchedData
-														.data.sessions
+													averageSessionsData.sessions
 												}
 											/>
 										}
 									/>
 								)}
 
-								{performance.fetchedData.data && (
+								{performanceData && (
 									<ChartsCard
 										className="performance"
 										content={
 											<ChartPerformance
-												data={
-													performance.fetchedData.data
-												}
+												data={performanceData}
 											/>
 										}
 									/>
 								)}
-								{user.fetchedData.data && (
+								{userData && (
 									<ChartsCard
 										className="score"
-										content={
-											<ChartGoal
-												data={user.fetchedData.data}
-											/>
-										}
+										content={<ChartGoal data={userData} />}
 									/>
 								)}
 							</div>
@@ -128,37 +160,28 @@ function Profil() {
 
 						<div className="dashboard-aside">
 							<Card
-								userKeyData={
-									user.fetchedData.data.keyData.calorieCount
-								}
+								userKeyData={userData.keyData.calorieCount}
 								unit="kCal"
 								subtitle="Calories"
 								className="calorie"
 								logo={energy}
 							/>
 							<Card
-								userKeyData={
-									user.fetchedData.data.keyData.proteinCount
-								}
+								userKeyData={userData.keyData.proteinCount}
 								unit="g"
 								subtitle="Proteines"
 								className="protein"
 								logo={chicken}
 							/>
 							<Card
-								userKeyData={
-									user.fetchedData.data.keyData
-										.carbohydrateCount
-								}
+								userKeyData={userData.keyData.carbohydrateCount}
 								unit="g"
 								subtitle="Glucides"
 								className="carbohydrate"
 								logo={apple}
 							/>
 							<Card
-								userKeyData={
-									user.fetchedData.data.keyData.lipidCount
-								}
+								userKeyData={userData.keyData.lipidCount}
 								unit="g"
 								subtitle="Lipides"
 								className="lipid"
