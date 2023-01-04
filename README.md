@@ -4,6 +4,8 @@
 ![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)
 [![forthebadge](https://forthebadge.com/images/badges/uses-git.svg)](https://github.com/ArthurBlanc)
 
+[Live demo](https://arthurblanc.github.io/SportSee/)
+
 ## Description
 
 > Create the consumer-facing dashboard of a sports analytics platform.
