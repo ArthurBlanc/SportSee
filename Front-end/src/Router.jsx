@@ -19,7 +19,7 @@ import Community from './pages/Community'
 function Router() {
 	return (
 		<React.StrictMode>
-			<BrowserRouter>
+			<BrowserRouter basename="/SportSee">
 				<Header />
 				<Sidebar />
 				<Routes>
