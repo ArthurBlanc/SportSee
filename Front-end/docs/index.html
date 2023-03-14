@@ -104,33 +104,245 @@
 
 
     <section>
-        <article><h1>P12</h1>
-<p><img src="/Front-end/src/assets/logo.svg" alt="P12"></p>
-<p><img src="https://forthebadge.com/images/badges/uses-js.svg" alt="forthebadge">
-<a href="https://github.com/ArthurBlanc"><img src="https://forthebadge.com/images/badges/uses-git.svg" alt="forthebadge"></a></p>
-<h3>Prerequisites</h3>
+        <article><p><img src="/Front-end/src/assets/logo.svg" alt="SportSee"></p>
+<h1>SportSee 🏋️‍♀️📈</h1>
+<p><a href="https://validator.w3.org/nu/?showsource=yes&amp;showoutline=yes&amp;showimagereport=yes&amp;doc=https%3A%2F%2Farthurblanc.github.io%2FSportSee%2F"><img src="https://forthebadge.com/images/badges/validated-html5.svg" alt="forthebadge"></a>
+<a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Farthurblanc.github.io%2FSportSee%2F&amp;profile=css3svg&amp;usermedium=all&amp;warning=1&amp;vextwarning=&amp;lang=fr"><img src="https://forthebadge.com/images/badges/uses-css.svg" alt="forthebadge"></a>
+<img src="https://forthebadge.com/images/badges/uses-js.svg" alt="forthebadge">
+<a href="https://github.com/ArthurBlanc"><img src="https://forthebadge.com/images/badges/uses-git.svg" alt="forthebadge"></a>
+<a href="https://reactjs.org/"><img src="https://img.shields.io/badge/react-20232a?style=for-the-badge&amp;logo=react&amp;logocolor=61dafb" alt="React"></a></p>
+<p><a href="https://arthurblanc.github.io/SportSee/">Site live</a> - <a href="#description-fr-">README en Français</a> - <a href="#en-description">English README</a></p>
+<h2>Description FR :</h2>
+<p>Ceci est un projet réalisé dans le cadre du programme de formation Développeur Front-end JavaScript React chez <a href="https://openclassrooms.com/fr/paths/516-developpeur-dapplication-javascript-react">OpenClassrooms</a></p>
+<blockquote>
+<p>Intégrez des graphiques et des diagrammes avec React pour un tableau de bord d'analytics de sport.
+Vous Utilisez une API pour récupérer les données.</p>
+<h4>Compétences évaluées :</h4>
 <ul>
-<li><a href="https://nodejs.org/en/">Node</a> for npm commands or <a href="https://yarnpkg.com/">Yarn</a> for yarn commands</li>
+<li>Assurer la qualité des données d'une application 👨‍💻</li>
+<li>Développer des éléments graphiques avancés à l'aide de bibliothèques JavaScript 📈</li>
+<li>Interagir avec un service Web 🌐</li>
+<li>Produire de la documentation technique pour une application 📝</li>
 </ul>
-<h3>Dependencies</h3>
+</blockquote>
+<h3>Situation (fictive) du projet :</h3>
+<p>Développeur chez “SportSee”, une startup dédiée au coaching sportif.</p>
+<p>En pleine croissance, l’entreprise souhaite lancer une nouvelle version de la page profil de l’utilisateur. Cette page va permettre à l’utilisateur de suivre le nombre de sessions réalisées ainsi que le nombre de calories brûlées.</p>
+<p>Mon rôle a été de développer le front-end de cette page de profil en utilisant React tout en respectant les maquettes Figma et les User Stories.</p>
+<h3>Cahier des charges :</h3>
+<h4>Contraintes techniques :</h4>
+<ul>
+<li>Priorité à la version Desktop :
+<ul>
+<li>Pas besoin de version mobile et tablette.</li>
+<li>Le projet doit être lisible sur les écrans d’au moins 1024 par 780 pixels.</li>
+</ul>
+</li>
+<li>React :
+<ul>
+<li>Séparation logique du code dans des composants réutilisables.</li>
+<li>Il faut intégrer des Proptypes pour chaque composant.</li>
+</ul>
+</li>
+<li>Utilisation de D3 ou de Recharts pour générer les graphiques est recommandé.</li>
+<li>Données : Utilisation d’une API en faisant des calls HTTP sur le backend NodeJS fourni en utilisant Fetch ou Axios.
+<ul>
+<li>Les calls doivent être réalisé en dehors des composants React.</li>
+</ul>
+</li>
+<li>Réaliser une documentation du projet.
+<ul>
+<li>La documentation doit être réalisée en anglais.</li>
+<li>Les fonctions et les méthodes du projet doivent être documentées.</li>
+<li>Le fichier README ne doit comporter que les étapes d’installation ainsi que les prérequis du projet.</li>
+</ul>
+</li>
+</ul>
+<h2>Installation :</h2>
+<h3>Prérequis :</h3>
+<ul>
+<li><a href="https://git-scm.com">Git</a></li>
+<li><a href="https://nodejs.org/en/">Node</a> pour les commandes npm ou <a href="https://yarnpkg.com/">Yarn</a> pour les commandes yarn</li>
+</ul>
+<h3>Dépendances :</h3>
 <ul>
 <li><a href="https://reactjs.org">React</a>: ^18</li>
 <li><a href="https://reactrouter.com/">React-router-dom</a>: ^6.3.0</li>
 <li><a href="https://sass-lang.com/">Sass</a>: ^1.49.11</li>
-<li><code>$ npm i sass</code> or <code>$ yarn add sass</code></li>
+<li><code>npm i sass</code> or <code>yarn add sass</code></li>
 <li><a href="https://recharts.org/">Recharts</a>: ^2.1.9</li>
-<li><code>$ npm i recharts</code> or <code>$ yarn add recharts</code></li>
+<li><code>npm i recharts</code> or <code>yarn add recharts</code></li>
 <li><a href="https://www.npmjs.com/package/prop-types">Prop-types</a>: ^15.8.1</li>
-<li><code>$ npm i prop-types</code> or <code>$ yarn add prop-types</code></li>
+<li><code>npm i prop-types</code> or <code>yarn add prop-types</code></li>
 </ul>
-<h2>Installing and launching Front-end</h2>
+<h3>Procédure d'installation :</h3>
+<p>Cloner le repository:</p>
+<ul>
+<li><code>git clone https://github.com/ArthurBlanc/SportSee</code></li>
+</ul>
+<h3>Installation et lancement du back-end :</h3>
 <ol>
-<li>Install all dependencies for Front-end:</li>
+<li>
+<p>Aller dans le dossier &quot;Back-end&quot;</p>
+</li>
+<li>
+<p>Installer toutes les dépendances pour le back-end:</p>
+</li>
+</ol>
+<ul>
+<li><code>npm install</code> ou <code>yarn</code></li>
+</ul>
+<ol start="3">
+<li>Lancer le back-end sur le port 3000 (port par défaut):</li>
+</ol>
+<ul>
+<li><code>npm run dev</code> ou <code>yarn run dev</code></li>
+</ul>
+<h3>Installation et lancement du front-end :</h3>
+<ol>
+<li>
+<p>Aller dans le dossier &quot;Front-end&quot;</p>
+</li>
+<li>
+<p>Installer toutes les dépendances pour le front-end:</p>
+</li>
+</ol>
+<ul>
+<li><code>npm install</code> ou <code>yarn</code></li>
+</ul>
+<ol start="3">
+<li>Lancer le front-end:</li>
+</ol>
+<ul>
+<li><code>npm start</code> ou <code>yarn start</code></li>
+</ul>
+<p>Le front-end sera lancé à l'URL:
+<code>http://localhost:80</code>.</p>
+<p>URL disponibles dans ce projet:</p>
+<ul>
+<li><code>http://localhost:80</code></li>
+<li><code>http://localhost:80/profil/12</code></li>
+<li><code>http://localhost:80/profil/18</code></li>
+<li><code>http://localhost:80/settings</code></li>
+<li><code>http://localhost:80/community</code></li>
+</ul>
+<h2>Développé avec :</h2>
+<ul>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a> - Éditeur de texte</li>
+<li><a href="https://sass-lang.com/">Sass</a> - Préprocesseur CSS</li>
+<li><a href="https://fr.reactjs.org/">React 18</a> - Bibliothèque JavaScript libre développée par Facebook</li>
+<li><a href="https://create-react-app.dev/">Create React App</a> - Boîte à outils créée par Facebook, qui est la référence pour initier un projet React</li>
+<li><a href="https://reactrouter.com/">React Router V6</a> - Bibliothèque de routage pour React</li>
+<li><a href="https://recharts.org/">Recharts</a> - Une bibliothèque de graphiques pour React</li>
+<li><a href="https://www.npmjs.com/package/prop-types">Prop-types</a> - Un package utilisé pour documenter les types de propriétés prévus transmises aux composants React</li>
+<li><a href="https://jsdoc.app/">JSDoc</a> - Générateur de documentation pour JavaScript</li>
+<li><a href="https://github.com/">GitHub</a> - Outil de gestion de versions</li>
+<li><a href="https://pages.github.com/">GitHub Pages</a> - Outil d’hébergement</li>
+</ul>
+<h2>Auteur :</h2>
+<p><strong>Arthur Blanc</strong> : <a href="https://github.com/ArthurBlanc/"><strong>GitHub</strong></a> - <a href="https://abcoding.fr/portfolio"><strong>Portfolio</strong></a></p>
+<h2>Maquettes :</h2>
+<p>Lien des maquettes : https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?node-id=0%3A1</p>
+<hr>
+<h2>EN Description:</h2>
+<p>This is a project carried out as part of the Front-End JavaScript React Developer training program at <a href="https://openclassrooms.com/en/paths/517-javascript-react-developer">OpenClassrooms</a>.</p>
+<blockquote>
+<p>Create the consumer-facing dashboard of a sports analytics platform.
+Build graphs and charts with React and use an API to fetch data.</p>
+<h4>Skills evaluated:</h4>
+<ul>
+<li>Ensuring the data quality of an application 👨‍💻</li>
+<li>Develop advanced graphical elements using JavaScript libraries 📈</li>
+<li>Interact with a web service 🌐</li>
+<li>Produce technical documentation for an application 📝</li>
+</ul>
+</blockquote>
+<h3>Project (fictional) situation:</h3>
+<p>I work as a developer at &quot;SportSee&quot;, a startup dedicated to sports coaching.</p>
+<p>As the company is growing, they want to launch a new version of the user profile page. This page will allow the user to track the number of sessions completed and the number of calories burned.</p>
+<p>My role was to develop the front-end of this profile page using React, while adhering to the Figma mockups and User Stories.</p>
+<h3>Specifications:</h3>
+<h4>Technical Constraints:</h4>
+<ul>
+<li>Priority to the Desktop version:
+<ul>
+<li>No need for mobile and tablet versions.</li>
+<li>The project must be readable on screens of at least 1024 by 780 pixels.</li>
+</ul>
+</li>
+<li>React:
+<ul>
+<li>Logical separation of code into reusable components.</li>
+<li>Proptypes must be integrated for each component.</li>
+</ul>
+</li>
+<li>Use of D3 or Recharts to generate charts is recommended.</li>
+<li>Data: Use an API by making HTTP calls on the provided NodeJS backend using Fetch or Axios.
+<ul>
+<li>Calls must be made outside of React components.</li>
+</ul>
+</li>
+<li>Create project documentation.
+<ul>
+<li>Documentation must be done in English.</li>
+<li>Functions and methods in the project must be documented.</li>
+<li>The README file should only contain installation steps and project prerequisites.</li>
+</ul>
+</li>
+</ul>
+<h2>Installation:</h2>
+<h3>Prerequisites:</h3>
+<ul>
+<li><a href="https://git-scm.com">Git</a></li>
+<li><a href="https://nodejs.org/en/">Node</a> for npm commands or <a href="https://yarnpkg.com/">Yarn</a> for yarn commands</li>
+</ul>
+<h3>Dependencies:</h3>
+<ul>
+<li><a href="https://reactjs.org">React</a>: ^18</li>
+<li><a href="https://reactrouter.com/">React-router-dom</a>: ^6.3.0</li>
+<li><a href="https://sass-lang.com/">Sass</a>: ^1.49.11</li>
+<li><code>npm i sass</code> or <code>yarn add sass</code></li>
+<li><a href="https://recharts.org/">Recharts</a>: ^2.1.9</li>
+<li><code>npm i recharts</code> or <code>yarn add recharts</code></li>
+<li><a href="https://www.npmjs.com/package/prop-types">Prop-types</a>: ^15.8.1</li>
+<li><code>npm i prop-types</code> or <code>yarn add prop-types</code></li>
+</ul>
+<h3>Installation process:</h3>
+<p>Clone the repository :</p>
+<ul>
+<li><code>git clone https://github.com/ArthurBlanc/SportSee</code></li>
+</ul>
+<h3>Installing and launching Back-end:</h3>
+<ol>
+<li>
+<p>Go in &quot;Back-end&quot; folder</p>
+</li>
+<li>
+<p>Install all dependencies for Back-end:</p>
+</li>
 </ol>
 <ul>
 <li><code>npm install</code> or <code>yarn</code></li>
 </ul>
-<ol start="2">
+<ol start="3">
+<li>Launch back-end on port 3000 (default port):</li>
+</ol>
+<ul>
+<li><code>npm run dev</code> or <code>yarn run dev</code></li>
+</ul>
+<h3>Installing and launching Front-end:</h3>
+<ol>
+<li>
+<p>Go in &quot;Front-end&quot; folder</p>
+</li>
+<li>
+<p>Install all dependencies for Front-end:</p>
+</li>
+</ol>
+<ul>
+<li><code>npm install</code> or <code>yarn</code></li>
+</ul>
+<ol start="3">
 <li>Launch front-end:</li>
 </ol>
 <ul>
@@ -146,47 +358,23 @@
 <li><code>http://localhost:80/settings</code></li>
 <li><code>http://localhost:80/community</code></li>
 </ul>
-<h2>Author</h2>
-<p><strong>Arthur Blanc</strong> : <a href="https://github.com/ArthurBlanc/"><strong>GitHub</strong></a> - <a href="https://abcoding.fr/"><strong>Portfolio</strong></a></p>
-<hr>
-<h1>Getting Started with Create React App</h1>
-<p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
-<h2>Available Scripts</h2>
-<p>In the project directory, you can run:</p>
-<h3><code>npm start</code></h3>
-<p>Runs the app in the development mode.<br>
-Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in your browser.</p>
-<p>The page will reload when you make changes.<br>
-You may also see any lint errors in the console.</p>
-<h3><code>npm test</code></h3>
-<p>Launches the test runner in the interactive watch mode.<br>
-See the section about <a href="https://facebook.github.io/create-react-app/docs/running-tests">running tests</a> for more information.</p>
-<h3><code>npm run build</code></h3>
-<p>Builds the app for production to the <code>build</code> folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.</p>
-<p>The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!</p>
-<p>See the section about <a href="https://facebook.github.io/create-react-app/docs/deployment">deployment</a> for more information.</p>
-<h3><code>npm run eject</code></h3>
-<p><strong>Note: this is a one-way operation. Once you <code>eject</code>, you can't go back!</strong></p>
-<p>If you aren't satisfied with the build tool and configuration choices, you can <code>eject</code> at any time. This command will remove the single build dependency from your project.</p>
-<p>Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except <code>eject</code> will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.</p>
-<p>You don't have to ever use <code>eject</code>. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.</p>
-<h2>Learn More</h2>
-<p>You can learn more in the <a href="https://facebook.github.io/create-react-app/docs/getting-started">Create React App documentation</a>.</p>
-<p>To learn React, check out the <a href="https://reactjs.org/">React documentation</a>.</p>
-<h3>Code Splitting</h3>
-<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/code-splitting">https://facebook.github.io/create-react-app/docs/code-splitting</a></p>
-<h3>Analyzing the Bundle Size</h3>
-<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size">https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size</a></p>
-<h3>Making a Progressive Web App</h3>
-<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app">https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app</a></p>
-<h3>Advanced Configuration</h3>
-<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/advanced-configuration">https://facebook.github.io/create-react-app/docs/advanced-configuration</a></p>
-<h3>Deployment</h3>
-<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/deployment">https://facebook.github.io/create-react-app/docs/deployment</a></p>
-<h3><code>npm run build</code> fails to minify</h3>
-<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify">https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify</a></p></article>
+<h2>Built With:</h2>
+<ul>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a> - Text editor</li>
+<li><a href="https://sass-lang.com/">Sass</a> - CSS preprocessor</li>
+<li><a href="https://reactjs.org/">React 18</a> - Free and open-source JavaScript library developed by Facebook</li>
+<li><a href="https://create-react-app.dev/">Create React App</a> - Toolkit created by Facebook, which is the reference for initiating a React project</li>
+<li><a href="https://reactrouter.com/">React Router V6</a> - Routing library for React</li>
+<li><a href="https://recharts.org/">Recharts</a> - A charting library for React</li>
+<li><a href="https://www.npmjs.com/package/prop-types">Prop-types</a> - A package used to document the intended types of properties passed to React components</li>
+<li><a href="https://jsdoc.app/">JSDoc</a> - Documentation generator for JavaScript</li>
+<li><a href="https://github.com/">GitHub</a> - Version control tool</li>
+<li><a href="https://pages.github.com/">GitHub Pages</a> - Hosting tool</li>
+</ul>
+<h2>Author:</h2>
+<p><strong>Arthur Blanc</strong>: <a href="https://github.com/ArthurBlanc/"><strong>GitHub</strong></a> - <a href="https://abcoding.fr/portfolio"><strong>Portfolio</strong></a></p>
+<h2>Mockups:</h2>
+<p>Link to mockups: https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR?node-id=0%3A1</p></article>
     </section>
 
 

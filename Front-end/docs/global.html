@@ -169,7 +169,7 @@
         
         <span class="code-name">
             
-                useFetch<span class="signature">()</span><span class="type-signature"></span>
+                useFetch<span class="signature">(urlAPI, userID, urlMockedData)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -178,8 +178,8 @@
     
     
     <div class="description">
-        <p>This function will fetch data from the url passed to it, and return an object with the fetchedData, a
-boolean indicating whether the data is loading, and a boolean indicating whether there was an error.</p>
+        <p>This function will fetch data from an API, if the API fails, it fetches data from mocked data.
+Also return a boolean indicating whether the data is loading, and two booleans indicating whether there was errors on the API and mocked data.</p>
     </div>
     
 
@@ -190,6 +190,107 @@ boolean indicating whether the data is loading, and a boolean indicating whether
 
 
 
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>urlAPI</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>The url of the API.</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>userID</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>The userID for the mocked data.</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>urlMockedData</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>The url of the mocked data.</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
 
 
 
@@ -230,7 +331,7 @@ boolean indicating whether the data is loading, and a boolean indicating whether
         <p class="tag-source">
             <a href="utils_useFetch.jsx.html" class="button">View Source</a>
             <span>
-                <a href="utils_useFetch.jsx.html">utils/useFetch.jsx</a>, <a href="utils_useFetch.jsx.html#line9">line 9</a>
+                <a href="utils_useFetch.jsx.html">utils/useFetch.jsx</a>, <a href="utils_useFetch.jsx.html#line13">line 13</a>
             </span>
         </p>
     
@@ -261,7 +362,7 @@ boolean indicating whether the data is loading, and a boolean indicating whether
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>An object with three properties: isLoading, fetchData, and error.</p></div>
+    <div class='param-desc column is-7'><p>An object with the following properties: isLoading, apiData, mockedData, errorAPI, errorMocked.</p></div>
     
     
 </div>
