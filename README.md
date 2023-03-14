@@ -99,15 +99,15 @@ Cloner le repository:
 -   `npm start` ou `yarn start`
 
 Le front-end sera lancé à l'URL:
-`http://localhost:80`.
+`http://localhost:80/SportSee`.
 
 URL disponibles dans ce projet:
 
--   `http://localhost:80`
--   `http://localhost:80/profil/12`
--   `http://localhost:80/profil/18`
--   `http://localhost:80/settings`
--   `http://localhost:80/community`
+-   `http://localhost:80/SportSee`
+-   `http://localhost:80/SportSee/profil/12`
+-   `http://localhost:80/SportSee/profil/18`
+-   `http://localhost:80/SportSee/settings`
+-   `http://localhost:80/SportSee/community`
 
 ## Développé avec :
 
@@ -221,15 +221,15 @@ Clone the repository :
 -   `npm start` or `yarn start`
 
 Front-end will launch at URL:
-`http://localhost:80`.
+`http://localhost:80/SportSee`.
 
 URL availables in this project:
 
--   `http://localhost:80`
--   `http://localhost:80/profil/12`
--   `http://localhost:80/profil/18`
--   `http://localhost:80/settings`
--   `http://localhost:80/community`
+-   `http://localhost:80/SportSee`
+-   `http://localhost:80/SportSee/profil/12`
+-   `http://localhost:80/SportSee/profil/18`
+-   `http://localhost:80/SportSee/settings`
+-   `http://localhost:80/SportSee/community`
 
 ## Built With:
 
